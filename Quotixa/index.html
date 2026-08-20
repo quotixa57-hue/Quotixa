@@ -7,7 +7,7 @@
 
 <!-- SEO principal -->
 <title>Quotixa — Genera cotizaciones profesionales gratis en 30 segundos</title>
-<meta name="description" content="Crea y envía cotizaciones profesionales por WhatsApp en 30 segundos. Sin Word, sin Canva, sin registro. Gratis para técnicos, electricistas, plomeros y cualquier independiente."/>
+<meta name="description" content="Gratis para técnicos, electricistas, plomeros y cualquier independiente."/>
 <meta name="keywords" content="cotización gratis, hacer cotización, plantilla cotización, cotización por whatsapp, cotización para técnicos, cotización electricista, cotización plomero, generador de cotizaciones"/>
 <meta name="author" content="Quotixa"/>
 <meta name="robots" content="index, follow"/>
@@ -149,10 +149,9 @@ input::placeholder{color:var(--text3);}
 .ob-card{background:#141414;border:1px solid #1e1e1e;border-radius:24px;padding:40px 36px;max-width:480px;width:100%;text-align:center;box-shadow:0 60px 120px #000000bb;}
 .ob-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.5px;margin-bottom:4px;}
 .ob-logo em{color:var(--green);font-style:normal;}
-.ob-tagline{font-size:12px;color:var(--text3);margin-bottom:32px;letter-spacing:0.02em;}
+.ob-tagline{font-size:13px;color:var(--text3);margin-bottom:32px;}
 .ob-steps{display:flex;flex-direction:column;gap:4px;margin-bottom:28px;text-align:left;}
-.ob-step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:12px;transition:background 0.15s;}
-.ob-step:hover{background:#1a1a1a;}
+.ob-step{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:12px;}
 .ob-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px;}
 .ob-icon-1{background:#001a0e;border:1px solid #00e67622;}
 .ob-icon-2{background:#0d1520;border:1px solid #3b82f620;}
@@ -164,6 +163,18 @@ input::placeholder{color:var(--text3);}
 .ob-cta:hover{background:#00ff88;box-shadow:0 8px 28px #00e67644;}
 .ob-cta-arrow{transition:transform 0.2s;}
 .ob-cta:hover .ob-cta-arrow{transform:translateX(4px);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1100px;margin:0 auto;}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;letter-spacing:-0.3px;}
+.footer-logo em{color:var(--green);font-style:normal;}
+.footer-contact{font-size:13px;color:var(--text3);}
+.footer-contact a{color:var(--text3);text-decoration:none;transition:color 0.15s;}
+.footer-contact a:hover{color:var(--green);}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color 0.15s;}
+.footer-links a:hover{color:var(--text2);}
+
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--surface2);border:1px solid var(--border2);color:var(--text);font-size:13px;padding:12px 20px;border-radius:10px;z-index:999;transition:transform 0.3s ease;box-shadow:0 8px 32px #00000066;display:flex;align-items:center;gap:8px;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 .toast-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;}
@@ -180,29 +191,29 @@ input::placeholder{color:var(--text3);}
       <div class="ob-step">
         <div class="ob-icon ob-icon-1">📋</div>
         <div>
-          <div class="ob-step-title">Llena tus datos y los del cliente</div>
-          <div class="ob-step-desc">Tu nombre, WhatsApp y ciudad. Sin registro ni contraseña. En segundos.</div>
+          <div class="ob-step-title">Escribe tu nombre y el del cliente</div>
+          <div class="ob-step-desc">Sin registro, sin contraseña. Solo tus datos y los del cliente — listo en segundos.</div>
         </div>
       </div>
       <div class="ob-divider"></div>
       <div class="ob-step">
         <div class="ob-icon ob-icon-2">🧮</div>
         <div>
-          <div class="ob-step-title">Agrega servicios y precios</div>
-          <div class="ob-step-desc">Describe lo que haces, la cantidad y el precio. El total se calcula solo.</div>
+          <div class="ob-step-title">Agrega lo que vas a cobrar</div>
+          <div class="ob-step-desc">Escribe el servicio, la cantidad y el precio. El total se calcula automáticamente.</div>
         </div>
       </div>
       <div class="ob-divider"></div>
       <div class="ob-step">
         <div class="ob-icon ob-icon-3">⚡</div>
         <div>
-          <div class="ob-step-title">Envía por WhatsApp o descarga</div>
-          <div class="ob-step-desc">Un clic manda la cotización directo al cliente. También puedes descargarla como imagen.</div>
+          <div class="ob-step-title">Envía por WhatsApp en un clic</div>
+          <div class="ob-step-desc">La cotización llega directo al cliente. También puedes descargarla como imagen.</div>
         </div>
       </div>
     </div>
     <button class="ob-cta" onclick="closeOnboarding()">
-      Crear mi primera cotización
+      Crear mi cotización gratis
       <span class="ob-cta-arrow">→</span>
     </button>
   </div>
@@ -213,13 +224,12 @@ input::placeholder{color:var(--text3);}
 </nav>
 
 <div class="hero">
-  <div class="hero-eyebrow">Para técnicos e independientes</div>
   <h1>Tu cotización<br/>en <em>30 segundos</em></h1>
-  <p>Sin Word, sin Canva, sin complicaciones. Llena el formulario y envíala por WhatsApp al instante.</p>
+  <p>Sin plantillas, sin complicaciones. Llena el formulario y envíala por WhatsApp al instante.</p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">30s</div><div class="stat-label">Por cotización</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Gratis en beta</div></div>
-    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Registro requerido</div></div>
+    <div class="stat"><div class="stat-num">Sin</div><div class="stat-label">Registro requerido</div></div>
   </div>
 </div>
 
@@ -291,6 +301,12 @@ input::placeholder{color:var(--text3);}
     </div>
   </div>
 </div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Quotix<em>a</em></div>
+  <div class="footer-contact">¿Dudas? <a href="mailto:quotixa57@gmail.com">quotixa57@gmail.com</a></div>
+</footer>
 
 <div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
 
@@ -419,11 +435,9 @@ function downloadIMG(){
   c.width=W; c.height=H;
   const ctx=c.getContext('2d');
 
-  // Background
   ctx.fillStyle='#141414';
   ctx.fillRect(0,0,W,H);
 
-  // Card
   const cx=PAD, cy=PAD, cw=W-PAD*2, ch=H-PAD*2;
   ctx.fillStyle='#1c1c1c';
   roundRect(ctx,cx,cy,cw,ch,16);
@@ -431,19 +445,16 @@ function downloadIMG(){
 
   let y=PAD+32;
 
-  // Biz name
   ctx.fillStyle='#f0f0f0';
   ctx.font='bold 22px Syne, sans-serif';
   ctx.fillText(myName, cx+28, y);
   y+=28;
 
-  // Biz sub
   ctx.fillStyle='#909090';
   ctx.font='14px DM Sans, sans-serif';
   if(myPhone){ctx.fillText(myPhone, cx+28, y); y+=20;}
   if(myCity){ctx.fillText(myCity, cx+28, y); y+=20;}
 
-  // Badge
   const badgeX=cx+cw-28, badgeY=PAD+28;
   ctx.fillStyle='#001a0e';
   roundRect(ctx,badgeX-110,badgeY-16,110,28,14);
@@ -458,21 +469,18 @@ function downloadIMG(){
   ctx.fillText('COTIZACIÓN', badgeX-55, badgeY+4);
   ctx.textAlign='left';
 
-  // Date
   ctx.fillStyle='#555';
   ctx.font='12px DM Sans, sans-serif';
   ctx.textAlign='right';
   ctx.fillText(fechaStr, cx+cw-28, badgeY+24);
   ctx.textAlign='left';
 
-  // Divider
   y=Math.max(y+16, PAD+100);
   ctx.strokeStyle='#242424';
   ctx.lineWidth=1;
   ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
   y+=24;
 
-  // Client
   ctx.fillStyle='#555';
   ctx.font='bold 10px Syne, sans-serif';
   ctx.fillText('PARA', cx+28, y);
@@ -486,7 +494,6 @@ function downloadIMG(){
   ctx.fillText(clientPhone, cx+28, y);
   y+=32;
 
-  // Table header
   ctx.strokeStyle='#242424';
   ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
   y+=16;
@@ -504,7 +511,6 @@ function downloadIMG(){
   ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
   y+=18;
 
-  // Rows
   lineItems.forEach(it=>{
     const line=it.qty*(parseFloat(it.price)||0);
     ctx.fillStyle='#f0f0f0';
@@ -524,13 +530,11 @@ function downloadIMG(){
   });
 
   y+=8;
-  // Total divider
   ctx.strokeStyle='#242424';
   ctx.lineWidth=1;
   ctx.beginPath();ctx.moveTo(cx+cw*0.55,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
   y+=22;
 
-  // Total
   ctx.fillStyle='#00e676';
   ctx.font='bold 22px Syne, sans-serif';
   ctx.fillText('Total', cx+cw*0.55, y);
@@ -538,7 +542,6 @@ function downloadIMG(){
   ctx.fillText(fmt(total), cx+cw-28, y);
   ctx.textAlign='left';
 
-  // Download
   const a=document.createElement('a');
   a.download='cotizacion.png';
   a.href=c.toDataURL('image/png');
