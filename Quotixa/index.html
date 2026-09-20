@@ -42,27 +42,21 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
 <style>
-/* TEMA OSCURO (por defecto) */
 :root{
   --bg:#0a0a0a;--surface:#141414;--surface2:#1c1c1c;
   --border:#242424;--border2:#2e2e2e;
   --text:#f0f0f0;--text2:#909090;--text3:#555;
   --green:#00e676;--green-bg:#001a0e;--green-border:#00e67633;
   --wa:#25D366;--r:12px;--rs:8px;
-  --nav-bg:#0a0a0acc;
-  --shadow:#00000066;
+  --nav-bg:#0a0a0acc;--shadow:#00000066;
 }
-
-/* TEMA CLARO */
 body.light{
   --bg:#f4f4f5;--surface:#ffffff;--surface2:#f0f0f0;
   --border:#e0e0e0;--border2:#cccccc;
   --text:#0a0a0a;--text2:#555555;--text3:#999999;
   --green:#00a854;--green-bg:#e6fff2;--green-border:#00a85433;
-  --nav-bg:#ffffffcc;
-  --shadow:#00000022;
+  --nav-bg:#ffffffcc;--shadow:#00000022;
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.2s,color 0.2s;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
@@ -70,8 +64,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);min
 nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;}
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.5px;}
 .logo em{color:var(--green);font-style:normal;}
-
-/* TOGGLE */
 .theme-toggle{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:12px;color:var(--text2);font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:6px;transition:all 0.2s;}
 .theme-toggle:hover{border-color:var(--border2);color:var(--text);}
 
@@ -149,7 +141,7 @@ input::placeholder{color:var(--text3);}
 
 /* ONBOARDING */
 .ob-overlay{position:fixed;inset:0;background:#050505f2;backdrop-filter:blur(16px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;}
-.ob-card{background:#141414;border:1px solid #1e1e1e;border-radius:24px;padding:40px 36px;max-width:480px;width:100%;text-align:center;box-shadow:0 60px 120px #000000bb;}
+.ob-card{background:#141414;border:1px solid #1e1e1e;border-radius:24px;padding:40px 36px;max-width:480px;width:100%;text-align:center;box-shadow:0 60px 120px #000000bb;max-height:90vh;overflow-y:auto;}
 .ob-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.5px;margin-bottom:4px;}
 .ob-logo em{color:#00e676;font-style:normal;}
 .ob-tagline{font-size:13px;color:#555;margin-bottom:32px;}
@@ -210,6 +202,22 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
           <div class="ob-step-desc">La cotización llega directo al cliente. También puedes descargarla como imagen.</div>
         </div>
       </div>
+      <div class="ob-divider"></div>
+      <div class="ob-step">
+        <div class="ob-icon" style="background:#1a1020;border:1px solid #a855f720;font-size:15px;">☀️</div>
+        <div>
+          <div class="ob-step-title">Modo claro u oscuro</div>
+          <div class="ob-step-desc">Usa el botón en la esquina superior derecha para cambiar el tema. La imagen descargada también cambia según el modo activo.</div>
+        </div>
+      </div>
+      <div class="ob-divider"></div>
+      <div class="ob-step">
+        <div class="ob-icon" style="background:#0d1520;border:1px solid #3b82f620;font-size:15px;">✉️</div>
+        <div>
+          <div class="ob-step-title">¿Dudas o sugerencias?</div>
+          <div class="ob-step-desc">Escríbenos a <span style="color:#00e676;font-weight:500;">quotixa57@gmail.com</span> — respondemos personalmente.</div>
+        </div>
+      </div>
     </div>
     <button class="ob-cta" onclick="closeOnboarding()">
       Crear mi cotización gratis
@@ -220,7 +228,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 
 <nav>
   <div class="logo">Cotivex<em>a</em></div>
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Oscuro</button>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Claro</button>
 </nav>
 
 <div class="hero">
@@ -310,7 +318,6 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 <div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
 
 <script>
-// TEMA
 let isLight = false;
 function toggleTheme(){
   isLight = !isLight;
@@ -433,17 +440,16 @@ function downloadIMG(){
   const clientPhone=document.getElementById('clientPhone').value.trim();
   const total=items.reduce((a,it)=>a+(it.qty*(parseFloat(it.price)||0)),0);
 
-  // Colores según el tema activo
   const T = isLight ? {
-    bg:'#f4f4f5', card:'#ffffff', cardBorder:'#e0e0e0',
-    text:'#0a0a0a', text2:'#555555', text3:'#999999',
-    green:'#00a854', greenBg:'#e6fff2', greenBorder:'#00a85433',
-    divider:'#e0e0e0', rowDiv:'#eeeeee'
+    bg:'#f4f4f5',card:'#ffffff',cardBorder:'#e0e0e0',
+    text:'#0a0a0a',text2:'#555555',text3:'#999999',
+    green:'#00a854',greenBg:'#e6fff2',greenBorder:'#00a85433',
+    divider:'#e0e0e0',rowDiv:'#eeeeee'
   } : {
-    bg:'#141414', card:'#1c1c1c', cardBorder:'#242424',
-    text:'#f0f0f0', text2:'#909090', text3:'#555555',
-    green:'#00e676', greenBg:'#001a0e', greenBorder:'#00e67633',
-    divider:'#242424', rowDiv:'#1e1e1e'
+    bg:'#141414',card:'#1c1c1c',cardBorder:'#242424',
+    text:'#f0f0f0',text2:'#909090',text3:'#555555',
+    green:'#00e676',greenBg:'#001a0e',greenBorder:'#00e67633',
+    divider:'#242424',rowDiv:'#1e1e1e'
   };
 
   const W=800, PAD=48;
@@ -454,116 +460,56 @@ function downloadIMG(){
   c.width=W; c.height=H;
   const ctx=c.getContext('2d');
 
-  ctx.fillStyle=T.bg;
-  ctx.fillRect(0,0,W,H);
-
+  ctx.fillStyle=T.bg; ctx.fillRect(0,0,W,H);
   const cx=PAD, cy=PAD, cw=W-PAD*2;
-  ctx.fillStyle=T.card;
-  roundRect(ctx,cx,cy,cw,H-PAD*2,16);
-  ctx.fill();
-  ctx.strokeStyle=T.cardBorder;
-  ctx.lineWidth=1;
-  roundRect(ctx,cx,cy,cw,H-PAD*2,16);
-  ctx.stroke();
+  ctx.fillStyle=T.card; roundRect(ctx,cx,cy,cw,H-PAD*2,16); ctx.fill();
+  ctx.strokeStyle=T.cardBorder; ctx.lineWidth=1; roundRect(ctx,cx,cy,cw,H-PAD*2,16); ctx.stroke();
 
   let y=PAD+32;
-
-  ctx.fillStyle=T.text;
-  ctx.font='bold 22px Syne, sans-serif';
-  ctx.fillText(myName, cx+28, y);
-  y+=28;
-
-  ctx.fillStyle=T.text2;
-  ctx.font='14px DM Sans, sans-serif';
-  if(myPhone){ctx.fillText(myPhone, cx+28, y); y+=20;}
-  if(myCity){ctx.fillText(myCity, cx+28, y); y+=20;}
+  ctx.fillStyle=T.text; ctx.font='bold 22px Syne, sans-serif'; ctx.fillText(myName,cx+28,y); y+=28;
+  ctx.fillStyle=T.text2; ctx.font='14px DM Sans, sans-serif';
+  if(myPhone){ctx.fillText(myPhone,cx+28,y);y+=20;}
+  if(myCity){ctx.fillText(myCity,cx+28,y);y+=20;}
 
   const badgeX=cx+cw-28, badgeY=PAD+28;
-  ctx.fillStyle=T.greenBg;
-  roundRect(ctx,badgeX-110,badgeY-16,110,28,14);
-  ctx.fill();
-  ctx.strokeStyle=T.greenBorder;
-  ctx.lineWidth=1;
-  roundRect(ctx,badgeX-110,badgeY-16,110,28,14);
-  ctx.stroke();
-  ctx.fillStyle=T.green;
-  ctx.font='bold 11px Syne, sans-serif';
-  ctx.textAlign='center';
-  ctx.fillText('COTIZACIÓN', badgeX-55, badgeY+4);
-  ctx.textAlign='left';
+  ctx.fillStyle=T.greenBg; roundRect(ctx,badgeX-110,badgeY-16,110,28,14); ctx.fill();
+  ctx.strokeStyle=T.greenBorder; ctx.lineWidth=1; roundRect(ctx,badgeX-110,badgeY-16,110,28,14); ctx.stroke();
+  ctx.fillStyle=T.green; ctx.font='bold 11px Syne, sans-serif'; ctx.textAlign='center';
+  ctx.fillText('COTIZACIÓN',badgeX-55,badgeY+4); ctx.textAlign='left';
+  ctx.fillStyle=T.text3; ctx.font='12px DM Sans, sans-serif'; ctx.textAlign='right';
+  ctx.fillText(fechaStr,cx+cw-28,badgeY+24); ctx.textAlign='left';
 
-  ctx.fillStyle=T.text3;
-  ctx.font='12px DM Sans, sans-serif';
-  ctx.textAlign='right';
-  ctx.fillText(fechaStr, cx+cw-28, badgeY+24);
-  ctx.textAlign='left';
+  y=Math.max(y+16,PAD+100);
+  ctx.strokeStyle=T.divider; ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=24;
 
-  y=Math.max(y+16, PAD+100);
-  ctx.strokeStyle=T.divider;
-  ctx.lineWidth=1;
-  ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
-  y+=24;
+  ctx.fillStyle=T.text3; ctx.font='bold 10px Syne, sans-serif'; ctx.fillText('PARA',cx+28,y); y+=18;
+  ctx.fillStyle=T.text; ctx.font='500 14px DM Sans, sans-serif'; ctx.fillText(clientName,cx+28,y); y+=18;
+  ctx.fillStyle=T.text2; ctx.font='12px DM Sans, sans-serif'; ctx.fillText(clientPhone,cx+28,y); y+=32;
 
-  ctx.fillStyle=T.text3;
-  ctx.font='bold 10px Syne, sans-serif';
-  ctx.fillText('PARA', cx+28, y);
-  y+=18;
-  ctx.fillStyle=T.text;
-  ctx.font='500 14px DM Sans, sans-serif';
-  ctx.fillText(clientName, cx+28, y);
-  y+=18;
-  ctx.fillStyle=T.text2;
-  ctx.font='12px DM Sans, sans-serif';
-  ctx.fillText(clientPhone, cx+28, y);
-  y+=32;
-
-  ctx.strokeStyle=T.divider;
-  ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
-  y+=16;
-  ctx.fillStyle=T.text3;
-  ctx.font='bold 10px Syne, sans-serif';
-  ctx.fillText('DESCRIPCIÓN', cx+28, y);
-  ctx.textAlign='center';
-  ctx.fillText('CANT.', cx+cw*0.58, y);
-  ctx.textAlign='right';
-  ctx.fillText('PRECIO C/U', cx+cw*0.76, y);
-  ctx.fillText('TOTAL', cx+cw-28, y);
-  ctx.textAlign='left';
-  y+=14;
-  ctx.strokeStyle=T.divider;
-  ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
-  y+=18;
+  ctx.strokeStyle=T.divider; ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=16;
+  ctx.fillStyle=T.text3; ctx.font='bold 10px Syne, sans-serif';
+  ctx.fillText('DESCRIPCIÓN',cx+28,y);
+  ctx.textAlign='center'; ctx.fillText('CANT.',cx+cw*0.58,y);
+  ctx.textAlign='right'; ctx.fillText('PRECIO C/U',cx+cw*0.76,y); ctx.fillText('TOTAL',cx+cw-28,y);
+  ctx.textAlign='left'; y+=14;
+  ctx.strokeStyle=T.divider; ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=18;
 
   lineItems.forEach(it=>{
     const line=it.qty*(parseFloat(it.price)||0);
-    ctx.fillStyle=T.text;
-    ctx.font='14px DM Sans, sans-serif';
-    ctx.fillText(it.desc||'Servicio', cx+28, y);
+    ctx.fillStyle=T.text; ctx.font='14px DM Sans, sans-serif'; ctx.fillText(it.desc||'Servicio',cx+28,y);
     ctx.fillStyle=T.text2;
-    ctx.textAlign='center';
-    ctx.fillText(String(it.qty), cx+cw*0.58, y);
-    ctx.textAlign='right';
-    ctx.fillText(fmt(parseFloat(it.price)||0), cx+cw*0.76, y);
-    ctx.fillText(fmt(line), cx+cw-28, y);
-    ctx.textAlign='left';
-    y+=14;
-    ctx.strokeStyle=T.rowDiv;
-    ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
-    y+=16;
+    ctx.textAlign='center'; ctx.fillText(String(it.qty),cx+cw*0.58,y);
+    ctx.textAlign='right'; ctx.fillText(fmt(parseFloat(it.price)||0),cx+cw*0.76,y); ctx.fillText(fmt(line),cx+cw-28,y);
+    ctx.textAlign='left'; y+=14;
+    ctx.strokeStyle=T.rowDiv; ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=16;
   });
 
   y+=8;
-  ctx.strokeStyle=T.divider;
-  ctx.lineWidth=1;
-  ctx.beginPath();ctx.moveTo(cx+cw*0.55,y);ctx.lineTo(cx+cw-28,y);ctx.stroke();
-  y+=22;
-
-  ctx.fillStyle=T.green;
-  ctx.font='bold 22px Syne, sans-serif';
-  ctx.fillText('Total', cx+cw*0.55, y);
-  ctx.textAlign='right';
-  ctx.fillText(fmt(total), cx+cw-28, y);
-  ctx.textAlign='left';
+  ctx.strokeStyle=T.divider; ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(cx+cw*0.55,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=22;
+  ctx.fillStyle=T.green; ctx.font='bold 22px Syne, sans-serif'; ctx.fillText('Total',cx+cw*0.55,y);
+  ctx.textAlign='right'; ctx.fillText(fmt(total),cx+cw-28,y); ctx.textAlign='left';
 
   const a=document.createElement('a');
   a.download='cotizacion.png';
