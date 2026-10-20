@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Generador de cotizaciones gratis y online | Cotivexa</title>
+<meta name="description" content="Generador de cotizaciones gratis para técnicos e independientes. Agrega tus servicios, el total se calcula solo y la envías por WhatsApp. Sin registro."/>
+<link rel="canonical" href="https://cotivexa-app.vercel.app/generador-de-cotizaciones"/>
+
+<meta property="og:title" content="Generador de cotizaciones gratis y online | Cotivexa"/>
+<meta property="og:description" content="Agrega tus servicios, el total se calcula solo y envías la cotización por WhatsApp. Sin registro."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cotivexa-app.vercel.app/generador-de-cotizaciones"/>
+<meta property="og:site_name" content="Cotivexa"/>
+<meta property="og:locale" content="es_ES"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Generador de cotizaciones gratis y online | Cotivexa"/>
+<meta name="twitter:description" content="Agrega tus servicios, el total se calcula solo y envías la cotización por WhatsApp. Sin registro."/>
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cotivexa — Generador de cotizaciones",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "description": "Generador de cotizaciones online y gratuito para técnicos e independientes. El total se calcula automáticamente y la cotización se envía por WhatsApp o se descarga como imagen.",
+    "url": "https://cotivexa-app.vercel.app/generador-de-cotizaciones",
+    "dateModified": "2026-10-20"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es un generador de cotizaciones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es una herramienta donde escribes tus datos, los del cliente y los servicios con su precio, y te arma la cotización con el total calculado, lista para enviar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito registrarme para usar Cotivexa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Cotivexa funciona directamente en el navegador, sin crear cuenta ni contraseña."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo envío la cotización al cliente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Con un clic se abre WhatsApp con el mensaje ya armado con tus servicios y el total. También puedes descargar la cotización como imagen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cotivexa es gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, actualmente es gratuito durante la beta."
+        }
+      }
+    ]
+  }
+]
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0a0a0a;--surface:#141414;--border:#222;--text:#f0f0f0;--text2:#909090;--text3:#555;--green:#00e676;--green-bg:#001a0e;--r:12px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+nav{background:#0a0a0acc;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;text-decoration:none;color:var(--text);}
+.logo em{color:var(--green);font-style:normal;}
+.nav-cta{background:var(--green);color:#000;font-weight:700;font-size:13px;padding:8px 18px;border-radius:8px;text-decoration:none;font-family:'Syne',sans-serif;}
+.hero{max-width:720px;margin:0 auto;padding:72px 24px 48px;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:16px;}
+h1 em{color:var(--green);font-style:normal;}
+.intro{font-size:16px;color:var(--text2);max-width:580px;font-weight:300;margin-bottom:32px;}
+.cta-btn-big{display:inline-block;background:var(--green);color:#000;font-weight:700;font-size:15px;padding:16px 36px;border-radius:12px;text-decoration:none;font-family:'Syne',sans-serif;}
+.content{max-width:720px;margin:0 auto;padding:0 24px 80px;}
+h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text);margin:48px 0 16px;letter-spacing:-0.3px;}
+p{font-size:15px;color:var(--text2);margin-bottom:16px;font-weight:300;}
+.steps{display:flex;flex-direction:column;margin:24px 0;}
+.step{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid #1a1a1a;}
+.step:last-child{border-bottom:none;}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--green-bg);border:1px solid #00e67633;color:var(--green);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.step-desc{font-size:14px;color:var(--text2);font-weight:300;}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+@media(max-width:600px){.features{grid-template-columns:1fr;}}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;}
+.feature-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.feature-desc{font-size:13px;color:var(--text2);font-weight:300;}
+.cta-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;margin:48px 0;}
+.cta-box h3{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px;}
+.cta-box p{color:var(--text3);font-size:14px;margin-bottom:24px;}
+.cta-btn{display:inline-block;background:var(--green);color:#000;font-weight:700;font-size:14px;padding:14px 32px;border-radius:10px;text-decoration:none;font-family:'Syne',sans-serif;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">Cotivex<em>a</em></a>
+  <a class="nav-cta" href="/">Crear cotización →</a>
+</nav>
+
+<div class="hero">
+  <h1>Generador de cotizaciones<br/><em>gratis</em> y online</h1>
+  <p class="intro">Escribes tus servicios y sus precios, el total se calcula solo y envías la cotización por WhatsApp. Funciona desde el celular y sin crear cuenta.</p>
+  <a class="cta-btn-big" href="/">Crear mi cotización →</a>
+</div>
+
+<div class="content">
+
+  <h2>¿Qué es un generador de cotizaciones?</h2>
+  <p>Es una herramienta que arma la cotización por ti. En lugar de escribirla desde cero cada vez, llenas unos campos —tus datos, los del cliente y lo que vas a cobrar— y obtienes un documento ordenado, con el total calculado.</p>
+  <p>Está pensado para técnicos, electricistas, plomeros, pintores, freelancers y otros independientes que cotizan con frecuencia y quieren que sus precios se vean claros.</p>
+
+  <h2>Cómo funciona Cotivexa</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Escribe tus datos y los del cliente</div>
+        <div class="step-desc">Tu nombre o empresa, tu WhatsApp y ciudad, y el nombre y WhatsApp de tu cliente.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Agrega lo que vas a cobrar</div>
+        <div class="step-desc">Escribe cada servicio o producto con su cantidad y precio. El total se actualiza automáticamente.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Revisa la vista previa</div>
+        <div class="step-desc">Mientras llenas el formulario ves cómo queda la cotización en tiempo real.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Envíala o descárgala</div>
+        <div class="step-desc">Con un clic se abre WhatsApp con el mensaje armado. También puedes descargarla como imagen.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Qué incluye</h2>
+  <div class="features">
+    <div class="feature"><div class="feature-title">Sin registro</div><div class="feature-desc">No necesitas crear cuenta ni contraseña para usarlo.</div></div>
+    <div class="feature"><div class="feature-title">Total automático</div><div class="feature-desc">Cantidad por precio de cada ítem, sumado sin que tengas que calcular.</div></div>
+    <div class="feature"><div class="feature-title">Envío por WhatsApp</div><div class="feature-desc">El mensaje llega armado con tus servicios y el total.</div></div>
+    <div class="feature"><div class="feature-title">Descarga como imagen</div><div class="feature-desc">Para guardarla, mostrarla o enviarla donde prefieras.</div></div>
+    <div class="feature"><div class="feature-title">Modo claro u oscuro</div><div class="feature-desc">Puedes cambiar el tema, y la imagen descargada sigue el modo que elijas.</div></div>
+    <div class="feature"><div class="feature-title">Desde el celular</div><div class="feature-desc">Funciona en el navegador, sin instalar nada.</div></div>
+  </div>
+
+  <h2>¿Es gratis?</h2>
+  <p>Sí. Por ahora Cotivexa es gratuito durante la beta.</p>
+
+  <div class="cta-box">
+    <h3>Prueba el generador</h3>
+    <p>Sin descargas y sin registro.</p>
+    <a class="cta-btn" href="/">Crear mi cotización gratis →</a>
+  </div>
+
+</div>
+</body>
+</html>
