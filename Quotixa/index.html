@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-<title>Cotivexa — Genera cotizaciones profesionales gratis en 30 segundos</title>
-<meta name="description" content="Gratis para técnicos, electricistas, plomeros y cualquier independiente."/>
+<title>Cotivexa — Genera cotizaciones profesionales gratis</title>
+<meta name="description" content="Genera cotizaciones profesionales gratis y envíalas por WhatsApp, sin registro. Para técnicos, electricistas, plomeros y cualquier independiente."/>
 <meta name="keywords" content="cotización gratis, hacer cotización, plantilla cotización, cotización por whatsapp, cotización para técnicos, cotización electricista, cotización plomero, generador de cotizaciones"/>
 <meta name="author" content="Cotivexa"/>
 <meta name="robots" content="index, follow"/>
@@ -16,7 +16,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
-<meta property="og:title" content="Cotivexa — Cotizaciones profesionales en 30 segundos"/>
+<meta property="og:title" content="Cotivexa — Cotizaciones profesionales para enviar por WhatsApp"/>
 <meta property="og:description" content="Crea y envía cotizaciones por WhatsApp al instante. Sin registro, sin complicaciones. Gratis."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://cotivexa-app.vercel.app/"/>
@@ -24,7 +24,7 @@
 <meta property="og:locale" content="es_ES"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Cotivexa — Cotizaciones profesionales en 30 segundos"/>
+<meta name="twitter:title" content="Cotivexa — Cotizaciones profesionales para enviar por WhatsApp"/>
 <meta name="twitter:description" content="Crea y envía cotizaciones por WhatsApp al instante. Sin registro. Gratis."/>
 
 <script type="application/ld+json">
@@ -35,8 +35,8 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "description": "Generador de cotizaciones profesionales gratis. Crea y envía cotizaciones por WhatsApp en 30 segundos sin registro.",
-  "featureList": ["Generador de cotizaciones en 30 segundos","Envío directo por WhatsApp","Descarga como imagen","Sin registro ni contraseña","100% gratis"]
+  "description": "Generador de cotizaciones profesionales gratis. Crea y envía cotizaciones por WhatsApp sin registro.",
+  "featureList": ["Generador de cotizaciones online","Envío directo por WhatsApp","Descarga como imagen","Sin registro ni contraseña","Gratis durante la beta"]
 }
 </script>
 
@@ -88,7 +88,9 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .field{margin-bottom:12px;}.field:last-child{margin-bottom:0;}
 label{font-size:12px;color:var(--text3);display:block;margin-bottom:6px;}
 input[type=text],input[type=number]{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:10px 13px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color 0.15s,box-shadow 0.15s;}
-input:focus{border-color:var(--green-border);box-shadow:0 0 0 3px var(--green-border);}
+input:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-border);}
+button:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
+.ob-cta:focus-visible{outline:2px solid #f0f0f0;outline-offset:3px;}
 input::placeholder{color:var(--text3);}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
@@ -99,7 +101,7 @@ input::placeholder{color:var(--text3);}
 .item-row{display:grid;grid-template-columns:1fr 60px 88px 32px;gap:8px;margin-bottom:8px;align-items:center;animation:fadeIn 0.15s ease;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
 .item-row input{background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:9px 10px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;width:100%;transition:border-color 0.15s;}
-.item-row input:focus{border-color:var(--green-border);}
+.item-row input:focus{border-color:var(--green);}
 .item-row input::placeholder{color:var(--text3);}
 .item-row input:nth-child(2){text-align:center;}
 .item-row input:nth-child(3){text-align:right;}
@@ -162,6 +164,9 @@ input::placeholder{color:var(--text3);}
 footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1100px;margin:0 auto;}
 .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;letter-spacing:-0.3px;}
 .footer-logo em{color:var(--green);font-style:normal;}
+.footer-links{display:flex;gap:16px;font-size:13px;}
+.footer-links a{color:var(--text3);text-decoration:none;transition:color 0.15s;}
+.footer-links a:hover{color:var(--green);}
 .footer-contact{font-size:13px;color:var(--text3);}
 .footer-contact a{color:var(--text3);text-decoration:none;transition:color 0.15s;}
 .footer-contact a:hover{color:var(--green);}
@@ -179,9 +184,9 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 <body>
 
 <!-- ONBOARDING -->
-<div class="ob-overlay" id="onboarding">
+<div class="ob-overlay" id="onboarding" role="dialog" aria-modal="true" aria-labelledby="obTitle">
   <div class="ob-card">
-    <div class="ob-logo">Cotivex<em>a</em></div>
+    <div class="ob-logo" id="obTitle">Cotivex<em>a</em></div>
     <div class="ob-tagline">Cotizaciones profesionales para técnicos e independientes</div>
     <div class="ob-steps">
       <div class="ob-step">
@@ -224,7 +229,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
         </div>
       </div>
     </div>
-    <button class="ob-cta" onclick="closeOnboarding()">
+    <button class="ob-cta" id="obCta" onclick="closeOnboarding()">
       Crear mi cotización gratis
       <span class="ob-cta-arrow">→</span>
     </button>
@@ -237,10 +242,10 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 </nav>
 
 <div class="hero">
-  <h1>Tu cotización<br/>en <em>30 segundos</em></h1>
+  <h1>Tu cotización<br/>lista para <em>WhatsApp</em></h1>
   <p>Sin plantillas, sin complicaciones. Llena el formulario y envíala por WhatsApp al instante.</p>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">30s</div><div class="stat-label">Por cotización</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Pasos para enviarla</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Gratis en beta</div></div>
     <div class="stat"><div class="stat-num">Sin</div><div class="stat-label">Registro requerido</div></div>
   </div>
@@ -253,16 +258,16 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
     <div class="col-label">Tu información</div>
     <div class="card">
       <div class="card-title">Tu negocio</div>
-      <div class="field"><label>Nombre / empresa</label><input type="text" id="myName" placeholder="Ej. Carlos Técnico AC" oninput="sync()"/></div>
+      <div class="field"><label for="myName">Nombre / empresa</label><input type="text" id="myName" placeholder="Ej. Carlos Técnico AC" oninput="sync()"/></div>
       <div class="row2">
-        <div class="field"><label>WhatsApp</label><input type="text" id="myPhone" placeholder="+57 300 123 4567" oninput="sync()"/></div>
-        <div class="field"><label>Ciudad</label><input type="text" id="myCity" placeholder="Cali, Colombia" oninput="sync()"/></div>
+        <div class="field"><label for="myPhone">WhatsApp</label><input type="text" id="myPhone" placeholder="+57 300 123 4567" oninput="sync()"/></div>
+        <div class="field"><label for="myCity">Ciudad</label><input type="text" id="myCity" placeholder="Cali, Colombia" oninput="sync()"/></div>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Cliente</div>
-      <div class="field"><label>Nombre del cliente</label><input type="text" id="clientName" placeholder="Ej. María López" oninput="sync()"/></div>
-      <div class="field"><label>WhatsApp cliente</label><input type="text" id="clientPhone" placeholder="+57 310 987 6543" oninput="sync()"/></div>
+      <div class="field"><label for="clientName">Nombre del cliente</label><input type="text" id="clientName" placeholder="Ej. María López" oninput="sync()"/></div>
+      <div class="field"><label for="clientPhone">WhatsApp cliente</label><input type="text" id="clientPhone" placeholder="+57 310 987 6543" oninput="sync()"/></div>
     </div>
     <div class="card">
       <div class="card-title">Servicios / productos</div>
@@ -317,10 +322,11 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 
 <footer>
   <div class="footer-logo">Cotivex<em>a</em></div>
+  <div class="footer-links"><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a></div>
   <div class="footer-contact">¿Dudas? <a href="mailto:quotixa57@gmail.com">quotixa57@gmail.com</a></div>
 </footer>
 
-<div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><div class="toast-dot"></div><span id="toastMsg"></span></div>
 
 <script>
 let isLight = false;
@@ -330,12 +336,21 @@ function toggleTheme(){
   document.getElementById('themeBtn').textContent = isLight ? '🌙 Oscuro' : '☀️ Claro';
 }
 
+const obEl=document.getElementById('onboarding');
+const bgEls=[...document.body.children].filter(el=>el!==obEl && el.tagName!=='SCRIPT');
+function setBackgroundInert(on){bgEls.forEach(el=>{if(on){el.setAttribute('inert','');}else{el.removeAttribute('inert');}});}
+let obOpen=true;
 function closeOnboarding(){
-  const ob=document.getElementById('onboarding');
-  ob.style.transition='opacity 0.3s ease';
-  ob.style.opacity='0';
-  setTimeout(()=>ob.style.display='none',300);
+  if(!obOpen) return;
+  obOpen=false;
+  setBackgroundInert(false);
+  obEl.style.transition='opacity 0.3s ease';
+  obEl.style.opacity='0';
+  setTimeout(()=>{obEl.style.display='none';},300);
 }
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOnboarding();});
+setBackgroundInert(true);
+document.getElementById('obCta').focus();
 
 let items = [{desc:'',qty:1,price:''}];
 const fechaStr = new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'});
@@ -360,10 +375,10 @@ function renderItems(){
   let html='';
   items.forEach((it,i)=>{
     html+='<div class="item-row">'
-      +'<input type="text" placeholder="Descripción del servicio" value="'+escH(it.desc)+'" oninput="items['+i+'].desc=this.value;sync()"/>'
-      +'<input type="number" min="1" value="'+it.qty+'" oninput="items['+i+'].qty=parseFloat(this.value)||1;sync()"/>'
-      +'<input type="number" min="0" placeholder="0" value="'+(it.price||'')+'" oninput="items['+i+'].price=parseFloat(this.value)||0;sync()"/>'
-      +'<button class="rm-btn" onclick="removeItem('+i+')" title="Eliminar">×</button>'
+      +'<input type="text" aria-label="Descripción del servicio" placeholder="Descripción del servicio" value="'+escH(it.desc)+'" oninput="items['+i+'].desc=this.value;sync()"/>'
+      +'<input type="number" aria-label="Cantidad" min="1" value="'+it.qty+'" oninput="items['+i+'].qty=parseFloat(this.value)||1;sync()"/>'
+      +'<input type="number" aria-label="Precio" min="0" placeholder="0" value="'+(it.price||'')+'" oninput="items['+i+'].price=parseFloat(this.value)||0;sync()"/>'
+      +'<button class="rm-btn" onclick="removeItem('+i+')" title="Eliminar" aria-label="Eliminar ítem">×</button>'
       +'</div>';
   });
   document.getElementById('items-list').innerHTML=html;
