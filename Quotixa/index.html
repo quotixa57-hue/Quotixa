@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-<title>Cotivexa — Genera cotizaciones profesionales gratis</title>
-<meta name="description" content="Genera cotizaciones profesionales gratis y envíalas por WhatsApp, sin registro. Para técnicos, electricistas, plomeros y cualquier independiente."/>
+<title>Cotivexa — Cotizaciones y presupuestos gratis por WhatsApp</title>
+<meta name="description" content="Crea cotizaciones o presupuestos profesionales gratis y envíalos por WhatsApp, sin registro. Plantillas para electricistas, plomeros, técnicos y freelancers."/>
 <meta name="keywords" content="cotización gratis, hacer cotización, plantilla cotización, cotización por whatsapp, cotización para técnicos, cotización electricista, cotización plomero, generador de cotizaciones"/>
 <meta name="author" content="Cotivexa"/>
 <meta name="robots" content="index, follow"/>
@@ -16,7 +16,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
-<meta property="og:title" content="Cotivexa — Cotizaciones profesionales para enviar por WhatsApp"/>
+<meta property="og:title" content="Cotivexa — Cotizaciones y presupuestos para enviar por WhatsApp"/>
 <meta property="og:description" content="Crea y envía cotizaciones por WhatsApp al instante. Sin registro, sin complicaciones. Gratis."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://cotivexa-app.vercel.app/"/>
@@ -24,7 +24,7 @@
 <meta property="og:locale" content="es_ES"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Cotivexa — Cotizaciones profesionales para enviar por WhatsApp"/>
+<meta name="twitter:title" content="Cotivexa — Cotizaciones y presupuestos para enviar por WhatsApp"/>
 <meta name="twitter:description" content="Crea y envía cotizaciones por WhatsApp al instante. Sin registro. Gratis."/>
 
 <script type="application/ld+json">
@@ -36,7 +36,7 @@
   "operatingSystem": "Web",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
   "description": "Generador de cotizaciones profesionales gratis. Crea y envía cotizaciones por WhatsApp sin registro.",
-  "featureList": ["Generador de cotizaciones online","Envío directo por WhatsApp","Descarga como imagen","Sin registro ni contraseña","Gratis durante la beta"]
+  "featureList": ["Generador de cotizaciones online","Envío directo por WhatsApp","Descarga como imagen","Plantillas por oficio","Varias monedas","Sin registro ni contraseña","Gratis durante la beta"]
 }
 </script>
 
@@ -87,8 +87,8 @@ nav{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:b
 .card-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--text3);letter-spacing:0.06em;margin-bottom:16px;text-transform:uppercase;}
 .field{margin-bottom:12px;}.field:last-child{margin-bottom:0;}
 label{font-size:12px;color:var(--text3);display:block;margin-bottom:6px;}
-input[type=text],input[type=number]{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:10px 13px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color 0.15s,box-shadow 0.15s;}
-input:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-border);}
+input[type=text],input[type=number],select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--rs);padding:10px 13px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color 0.15s,box-shadow 0.15s;}
+input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-border);}
 button:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
 .ob-cta:focus-visible{outline:2px solid #f0f0f0;outline-offset:3px;}
 input::placeholder{color:var(--text3);}
@@ -109,6 +109,12 @@ input::placeholder{color:var(--text3);}
 .rm-btn:hover{border-color:#ff444466;color:#ff6666;background:#ff444411;}
 .add-btn{width:100%;margin-top:4px;background:none;border:1px dashed var(--border);border-radius:var(--rs);color:var(--text3);font-size:13px;font-family:'DM Sans',sans-serif;padding:9px;cursor:pointer;transition:all 0.2s;}
 .add-btn:hover{border-color:var(--border2);color:var(--text2);background:var(--surface2);}
+select{cursor:pointer;}
+select option{background:var(--surface);color:var(--text);}
+.tpl-links{font-size:12px;color:var(--text3);margin-top:8px;}
+.tpl-links a{color:var(--green);text-decoration:none;}
+.tpl-links a:hover{text-decoration:underline;}
+.hint{font-size:11px;color:var(--text3);margin-top:6px;}
 .total-bar{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
 .total-label{font-size:13px;color:var(--text2);}
 .total-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--green);letter-spacing:-0.5px;}
@@ -164,7 +170,7 @@ input::placeholder{color:var(--text3);}
 footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1100px;margin:0 auto;}
 .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;letter-spacing:-0.3px;}
 .footer-logo em{color:var(--green);font-style:normal;}
-.footer-links{display:flex;gap:16px;font-size:13px;}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;}
 .footer-links a{color:var(--text3);text-decoration:none;transition:color 0.15s;}
 .footer-links a:hover{color:var(--green);}
 .footer-contact{font-size:13px;color:var(--text3);}
@@ -243,7 +249,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 
 <div class="hero">
   <h1>Tu cotización<br/>lista para <em>WhatsApp</em></h1>
-  <p>Sin plantillas, sin complicaciones. Llena el formulario y envíala por WhatsApp al instante.</p>
+  <p>Elige una plantilla por oficio o llena el formulario, y envíala por WhatsApp al instante.</p>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">Pasos para enviarla</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Gratis en beta</div></div>
@@ -260,17 +266,62 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
       <div class="card-title">Tu negocio</div>
       <div class="field"><label for="myName">Nombre / empresa</label><input type="text" id="myName" placeholder="Ej. Carlos Técnico AC" oninput="sync()"/></div>
       <div class="row2">
-        <div class="field"><label for="myPhone">WhatsApp</label><input type="text" id="myPhone" placeholder="+57 300 123 4567" oninput="sync()"/></div>
-        <div class="field"><label for="myCity">Ciudad</label><input type="text" id="myCity" placeholder="Cali, Colombia" oninput="sync()"/></div>
+        <div class="field"><label for="myPhone">WhatsApp</label><input type="text" id="myPhone" placeholder="+código de país y número" oninput="sync()"/></div>
+        <div class="field"><label for="myCity">Ciudad</label><input type="text" id="myCity" placeholder="Ciudad, país" oninput="sync()"/></div>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Cliente</div>
       <div class="field"><label for="clientName">Nombre del cliente</label><input type="text" id="clientName" placeholder="Ej. María López" oninput="sync()"/></div>
-      <div class="field"><label for="clientPhone">WhatsApp cliente</label><input type="text" id="clientPhone" placeholder="+57 310 987 6543" oninput="sync()"/></div>
+      <div class="field"><label for="clientPhone">WhatsApp cliente</label><input type="text" id="clientPhone" placeholder="+código de país y número" oninput="sync()"/><div class="hint">Incluye el código de país (por ejemplo +57, +52 o +34) para que se abra el chat.</div></div>
     </div>
     <div class="card">
       <div class="card-title">Servicios / productos</div>
+      <div class="field">
+        <label for="tplSel">Empezar con una plantilla</label>
+        <select id="tplSel" onchange="applyTemplate(this.value)">
+          <option value="">Elegir plantilla por oficio…</option>
+          <option value="electricista">Electricista</option>
+          <option value="plomero">Plomero / Fontanero</option>
+          <option value="pintor">Pintor</option>
+          <option value="aire">Aire acondicionado</option>
+          <option value="albanil">Albañil / Construcción</option>
+          <option value="carpintero">Carpintero</option>
+          <option value="cerrajero">Cerrajero</option>
+          <option value="freelancer">Freelance (diseño / web)</option>
+        </select>
+        <div class="tpl-links">Guías por oficio: <a href="/cotizacion-para-electricistas">electricistas</a> · <a href="/cotizacion-para-plomeros">plomeros</a></div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="curSel">Moneda</label>
+          <select id="curSel" onchange="setCurrency(this.value)">
+            <option value="USD">USD — Dólar estadounidense</option>
+            <option value="COP">COP — Peso colombiano</option>
+            <option value="MXN">MXN — Peso mexicano</option>
+            <option value="EUR">EUR — Euro</option>
+            <option value="ARS">ARS — Peso argentino</option>
+            <option value="CLP">CLP — Peso chileno</option>
+            <option value="PEN">PEN — Sol peruano</option>
+            <option value="UYU">UYU — Peso uruguayo</option>
+            <option value="BOB">BOB — Boliviano</option>
+            <option value="PYG">PYG — Guaraní</option>
+            <option value="DOP">DOP — Peso dominicano</option>
+            <option value="GTQ">GTQ — Quetzal</option>
+            <option value="CRC">CRC — Colón costarricense</option>
+            <option value="HNL">HNL — Lempira</option>
+            <option value="NIO">NIO — Córdoba</option>
+            <option value="VES">VES — Bolívar venezolano</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="docSel">Documento</label>
+          <select id="docSel" onchange="setDoc(this.value)">
+            <option value="cotización">Cotización</option>
+            <option value="presupuesto">Presupuesto</option>
+          </select>
+        </div>
+      </div>
       <div class="items-head"><span>Descripción</span><span>Cant.</span><span>Precio</span><span></span></div>
       <div id="items-list"></div>
       <button class="add-btn" onclick="addItem()">+ Agregar ítem</button>
@@ -300,7 +351,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
           <div class="prev-biz-sub" id="pContact" style="color:var(--text3);font-style:italic;">Completa el formulario →</div>
         </div>
         <div style="text-align:right;">
-          <div class="cot-badge">Cotización</div>
+          <div class="cot-badge" id="pBadge">Cotización</div>
           <div class="cot-meta" id="pDate"></div>
         </div>
       </div>
@@ -322,7 +373,16 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;align-i
 
 <footer>
   <div class="footer-logo">Cotivex<em>a</em></div>
-  <div class="footer-links"><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a></div>
+  <div class="footer-links">
+    <a href="/generador-de-cotizaciones">Generador de cotizaciones</a>
+    <a href="/plantilla-cotizacion-gratis">Plantilla gratis</a>
+    <a href="/como-hacer-una-cotizacion">Cómo hacer una cotización</a>
+    <a href="/cotizacion-por-whatsapp">Cotización por WhatsApp</a>
+    <a href="/cotizacion-para-tecnicos">Para técnicos</a>
+    <a href="/como-cobrar-como-freelancer">Cobrar como freelancer</a>
+    <a href="/privacidad">Privacidad</a>
+    <a href="/terminos">Términos</a>
+  </div>
   <div class="footer-contact">¿Dudas? <a href="mailto:quotixa57@gmail.com">quotixa57@gmail.com</a></div>
 </footer>
 
@@ -353,10 +413,64 @@ setBackgroundInert(true);
 document.getElementById('obCta').focus();
 
 let items = [{desc:'',qty:1,price:''}];
-const fechaStr = new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'long',year:'numeric'});
+const fechaStr = new Date().toLocaleDateString('es',{day:'2-digit',month:'long',year:'numeric'});
 document.getElementById('pDate').textContent = fechaStr;
 
-function fmt(n){return '$'+Math.round(n).toLocaleString('es-CO');}
+const CUR={
+  USD:{loc:'es-US'},COP:{loc:'es-CO',zero:1},MXN:{loc:'es-MX'},EUR:{loc:'es-ES'},ARS:{loc:'es-AR'},
+  CLP:{loc:'es-CL',zero:1},PEN:{loc:'es-PE'},UYU:{loc:'es-UY'},BOB:{loc:'es-BO'},PYG:{loc:'es-PY',zero:1},
+  DOP:{loc:'es-DO'},GTQ:{loc:'es-GT'},CRC:{loc:'es-CR'},HNL:{loc:'es-HN'},NIO:{loc:'es-NI'},VES:{loc:'es-VE'}
+};
+let CURRENCY='USD', DOC='cotización', nf=null;
+
+function guessCurrency(){
+  const byRegion={CO:'COP',MX:'MXN',ES:'EUR',AR:'ARS',CL:'CLP',PE:'PEN',UY:'UYU',BO:'BOB',PY:'PYG',DO:'DOP',GT:'GTQ',CR:'CRC',HN:'HNL',NI:'NIO',VE:'VES',US:'USD',EC:'USD',SV:'USD',PA:'USD',PR:'USD'};
+  const byZone={'America/Bogota':'COP','America/Mexico_City':'MXN','America/Monterrey':'MXN','America/Tijuana':'MXN','America/Cancun':'MXN','Europe/Madrid':'EUR','America/Argentina/Buenos_Aires':'ARS','America/Santiago':'CLP','America/Lima':'PEN','America/Montevideo':'UYU','America/La_Paz':'BOB','America/Asuncion':'PYG','America/Santo_Domingo':'DOP','America/Guatemala':'GTQ','America/Costa_Rica':'CRC','America/Tegucigalpa':'HNL','America/Managua':'NIO','America/Caracas':'VES','America/Guayaquil':'USD','America/El_Salvador':'USD','America/Panama':'USD'};
+  try{
+    const m=(navigator.language||'').match(/[-_]([A-Za-z]{2})$/);
+    if(m&&byRegion[m[1].toUpperCase()]) return byRegion[m[1].toUpperCase()];
+    const z=Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if(byZone[z]) return byZone[z];
+  }catch(e){}
+  return 'USD';
+}
+
+function buildNF(){
+  const c=CUR[CURRENCY]||CUR.USD;
+  try{
+    nf={int:new Intl.NumberFormat(c.loc,{style:'currency',currency:CURRENCY,minimumFractionDigits:0,maximumFractionDigits:0}),
+        dec:new Intl.NumberFormat(c.loc,{style:'currency',currency:CURRENCY,minimumFractionDigits:2,maximumFractionDigits:2})};
+  }catch(e){nf=null;}
+}
+function fmt(n){
+  n=Number(n)||0;
+  const c=CUR[CURRENCY]||CUR.USD;
+  if(c.zero) n=Math.round(n);
+  if(!nf) return '$'+n.toLocaleString('es');
+  return (Math.abs(n-Math.round(n))>0.004?nf.dec:nf.int).format(n);
+}
+function fmtTotal(n){return CURRENCY==='EUR'?fmt(n):fmt(n)+' '+CURRENCY;}
+function setCurrency(v){CURRENCY=CUR[v]?v:'USD';buildNF();sync();}
+function setDoc(v){DOC=(v==='presupuesto')?'presupuesto':'cotización';sync();}
+
+const TPL={
+  electricista:['Visita técnica y diagnóstico','Instalación de tomacorriente / enchufe','Instalación de interruptor','Instalación de luminaria','Cableado (por metro)','Revisión de tablero / cuadro eléctrico','Materiales'],
+  plomero:['Visita técnica y diagnóstico','Reparación de fuga','Destape de desagüe / cañería','Cambio de llave / grifo','Instalación de sanitario / inodoro','Instalación de calentador / termo','Materiales'],
+  pintor:['Preparación de superficies (lijado y resane)','Pintura de paredes (por m²)','Pintura de techos (por m²)','Pintura de puertas y marcos','Materiales (pintura y herramientas)'],
+  aire:['Visita técnica y diagnóstico','Mantenimiento y limpieza de equipo','Carga de gas refrigerante','Instalación de equipo (split)','Reparación de componentes','Materiales y repuestos'],
+  albanil:['Mano de obra (por día)','Levantamiento de muro (por m²)','Acabado de paredes (por m²)','Instalación de piso o cerámica (por m²)','Impermeabilización (por m²)','Materiales'],
+  carpintero:['Visita y toma de medidas','Fabricación de mueble a medida','Instalación de puerta','Reparación de mueble','Barnizado / acabado','Materiales'],
+  cerrajero:['Apertura de puerta','Cambio de cerradura','Copia de llaves','Instalación de cerradura de seguridad','Desplazamiento / servicio a domicilio'],
+  freelancer:['Reunión inicial y definición del trabajo','Diseño / desarrollo (por hora o proyecto)','Rondas de revisión','Entrega de archivos finales','Dominio / hosting (si aplica)']
+};
+function applyTemplate(k){
+  if(!k||!TPL[k]) return;
+  items=items.filter(it=>it.desc||it.price);
+  TPL[k].forEach(d=>items.push({desc:d,qty:1,price:''}));
+  document.getElementById('tplSel').value='';
+  renderItems();
+  showToast('Plantilla cargada: pon tus precios (las líneas sin precio no se envían)');
+}
 
 function addItem(){
   items.push({desc:'',qty:1,price:''});
@@ -395,6 +509,7 @@ function sync(){
   const clientPhone=document.getElementById('clientPhone').value.trim();
 
   document.getElementById('pName').textContent=myName||'Tu nombre';
+  document.getElementById('pBadge').textContent=DOC.charAt(0).toUpperCase()+DOC.slice(1);
   const lines=[myPhone,myCity].filter(Boolean);
   const el=document.getElementById('pContact');
   if(lines.length){el.innerHTML=lines.map(escH).join('<br/>');el.style.color='';el.style.fontStyle='';}
@@ -405,8 +520,8 @@ function sync(){
   document.getElementById('pClientPhone').textContent=clientPhone;
 
   const total=items.reduce((a,it)=>a+(it.qty*(parseFloat(it.price)||0)),0);
-  document.getElementById('totalAmt').textContent=fmt(total);
-  document.getElementById('pTotal').textContent=fmt(total);
+  document.getElementById('totalAmt').textContent=fmtTotal(total);
+  document.getElementById('pTotal').textContent=fmtTotal(total);
 
   const hasItems=items.some(it=>it.desc||it.price);
   let rows='';
@@ -415,11 +530,11 @@ function sync(){
   } else {
     items.forEach(it=>{
       const line=it.qty*(parseFloat(it.price)||0);
-      rows+='<tr>'
+      rows+='<tr'+(line>0?'':' style="opacity:.45"')+'>'
         +'<td>'+(it.desc?escH(it.desc):'<span style="color:var(--text3);font-style:italic;">Sin descripción</span>')+'</td>'
         +'<td>'+it.qty+'</td>'
-        +'<td>'+fmt(parseFloat(it.price)||0)+'</td>'
-        +'<td>'+fmt(line)+'</td>'
+        +'<td>'+(line>0?fmt(parseFloat(it.price)||0):'—')+'</td>'
+        +'<td>'+(line>0?fmt(line):'—')+'</td>'
         +'</tr>';
     });
   }
@@ -434,25 +549,28 @@ function showToast(msg){
 }
 
 function sendWA(){
-  const clientPhone=document.getElementById('clientPhone').value.replace(/\D/g,'');
+  let clientPhone=document.getElementById('clientPhone').value.replace(/\D/g,'');
+  const rawPhone=document.getElementById('clientPhone').value;
+  if(/^\s*00/.test(rawPhone)) clientPhone=clientPhone.replace(/^00/,'');
   const clientName=document.getElementById('clientName').value.trim()||'Cliente';
   const total=items.reduce((a,it)=>a+(it.qty*(parseFloat(it.price)||0)),0);
   if(!clientPhone){showToast('Agrega el WhatsApp del cliente para enviar');return;}
-  if(!items.some(it=>it.desc||it.price)){showToast('Agrega al menos un ítem');return;}
-  let msg='Hola '+clientName+',\n\nTe comparto tu cotización:\n\n';
+  if(!/^\s*(\+|00)/.test(rawPhone)&&clientPhone.length<=10){showToast('Agrega el código de país al WhatsApp del cliente (ej. +57)');return;}
+  if(!items.some(it=>(parseFloat(it.price)||0)>0)){showToast('Agrega al menos un ítem con precio');return;}
+  let msg='Hola '+clientName+',\n\nTe comparto tu '+DOC+':\n\n';
   items.forEach(it=>{
-    if(it.desc||it.price){
+    if((parseFloat(it.price)||0)>0){
       const cant=it.qty>1?' x'+it.qty:'';
       msg+='• '+(it.desc||'Servicio')+cant+' — '+fmt((parseFloat(it.price)||0)*it.qty)+'\n';
     }
   });
-  msg+='\n*Total: '+fmt(total)+'*\n\nCualquier duda estoy por aquí.';
+  msg+='\n*Total: '+fmtTotal(total)+'*\n\nCualquier duda estoy por aquí.';
   window.open('https://wa.me/'+clientPhone+'?text='+encodeURIComponent(msg),'_blank');
   showToast('¡WhatsApp abierto con tu cotización!');
 }
 
 function downloadIMG(){
-  if(!items.some(it=>it.desc||it.price)){showToast('Agrega al menos un ítem antes de descargar');return;}
+  if(!items.some(it=>(parseFloat(it.price)||0)>0)){showToast('Agrega al menos un ítem con precio antes de descargar');return;}
   const myName=document.getElementById('myName').value.trim()||'Tu negocio';
   const myPhone=document.getElementById('myPhone').value.trim();
   const myCity=document.getElementById('myCity').value.trim();
@@ -473,7 +591,7 @@ function downloadIMG(){
   };
 
   const W=800, PAD=48;
-  const lineItems=items.filter(it=>it.desc||it.price);
+  const lineItems=items.filter(it=>(parseFloat(it.price)||0)>0);
   const H=PAD*2+120+32+60+(lineItems.length*44)+80+60;
 
   const c=document.createElement('canvas');
@@ -495,7 +613,7 @@ function downloadIMG(){
   ctx.fillStyle=T.greenBg; roundRect(ctx,badgeX-110,badgeY-16,110,28,14); ctx.fill();
   ctx.strokeStyle=T.greenBorder; ctx.lineWidth=1; roundRect(ctx,badgeX-110,badgeY-16,110,28,14); ctx.stroke();
   ctx.fillStyle=T.green; ctx.font='bold 11px Syne, sans-serif'; ctx.textAlign='center';
-  ctx.fillText('COTIZACIÓN',badgeX-55,badgeY+4); ctx.textAlign='left';
+  fitText(ctx,DOC.toUpperCase(),96,'bold #px Syne, sans-serif',11); ctx.fillText(DOC.toUpperCase(),badgeX-55,badgeY+4); ctx.textAlign='left';
   ctx.fillStyle=T.text3; ctx.font='12px DM Sans, sans-serif'; ctx.textAlign='right';
   ctx.fillText(fechaStr,cx+cw-28,badgeY+24); ctx.textAlign='left';
 
@@ -517,10 +635,12 @@ function downloadIMG(){
 
   lineItems.forEach(it=>{
     const line=it.qty*(parseFloat(it.price)||0);
-    ctx.fillStyle=T.text; ctx.font='14px DM Sans, sans-serif'; ctx.fillText(it.desc||'Servicio',cx+28,y);
+    ctx.fillStyle=T.text; ctx.font='14px DM Sans, sans-serif'; ctx.fillText(clip(ctx,it.desc||'Servicio',cw*0.58-28-30),cx+28,y);
     ctx.fillStyle=T.text2;
     ctx.textAlign='center'; ctx.fillText(String(it.qty),cx+cw*0.58,y);
-    ctx.textAlign='right'; ctx.fillText(fmt(parseFloat(it.price)||0),cx+cw*0.76,y); ctx.fillText(fmt(line),cx+cw-28,y);
+    ctx.textAlign='right';
+    fitText(ctx,fmt(parseFloat(it.price)||0),cw*0.18-36,'14px DM Sans, sans-serif',14); ctx.fillText(fmt(parseFloat(it.price)||0),cx+cw*0.76,y);
+    fitText(ctx,fmt(line),cw*0.24-40,'14px DM Sans, sans-serif',14); ctx.fillText(fmt(line),cx+cw-28,y);
     ctx.textAlign='left'; y+=14;
     ctx.strokeStyle=T.rowDiv; ctx.beginPath();ctx.moveTo(cx+28,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=16;
   });
@@ -529,15 +649,25 @@ function downloadIMG(){
   ctx.strokeStyle=T.divider; ctx.lineWidth=1;
   ctx.beginPath();ctx.moveTo(cx+cw*0.55,y);ctx.lineTo(cx+cw-28,y);ctx.stroke(); y+=22;
   ctx.fillStyle=T.green; ctx.font='bold 22px Syne, sans-serif'; ctx.fillText('Total',cx+cw*0.55,y);
-  ctx.textAlign='right'; ctx.fillText(fmt(total),cx+cw-28,y); ctx.textAlign='left';
+  const lw=ctx.measureText('Total').width;
+  ctx.textAlign='right'; fitText(ctx,fmtTotal(total),cw*0.45-28-lw-16,'bold #px Syne, sans-serif',22); ctx.fillText(fmtTotal(total),cx+cw-28,y); ctx.textAlign='left';
 
   const a=document.createElement('a');
-  a.download='cotizacion.png';
+  a.download=(DOC==='presupuesto'?'presupuesto':'cotizacion')+'.png';
   a.href=c.toDataURL('image/png');
   a.click();
   showToast('¡Imagen descargada!');
 }
 
+function clip(ctx,t,maxW){
+  if(ctx.measureText(t).width<=maxW) return t;
+  while(t.length>1&&ctx.measureText(t+'…').width>maxW) t=t.slice(0,-1);
+  return t+'…';
+}
+function fitText(ctx,t,maxW,tpl,size){
+  let sz=size; ctx.font=tpl.replace('#',sz);
+  while(ctx.measureText(t).width>maxW&&sz>9){sz--;ctx.font=tpl.replace('#',sz);}
+}
 function roundRect(ctx,x,y,w,h,r){
   ctx.beginPath();
   ctx.moveTo(x+r,y);
@@ -548,7 +678,14 @@ function roundRect(ctx,x,y,w,h,r){
   ctx.closePath();
 }
 
+CURRENCY=guessCurrency();
+DOC=(CURRENCY==='EUR'||CURRENCY==='ARS')?'presupuesto':'cotización';
+document.getElementById('curSel').value=CURRENCY;
+document.getElementById('docSel').value=DOC;
+buildNF();
 renderItems();
+const qTpl=new URLSearchParams(location.search).get('plantilla');
+if(qTpl&&TPL[qTpl]){applyTemplate(qTpl);closeOnboarding();}
 </script>
 </body>
 </html>
